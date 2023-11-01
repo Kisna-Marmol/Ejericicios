@@ -60,6 +60,24 @@ public class FM
         
         return cadena;
     }
+    //Funcion que pide una cadena valida que sea una letra y la devuelve
+    public static char pedirLetra(String mensaje){
+        String letra = " " ;
+        boolean seguir = true;
+        
+        do{
+            letra = JOptionPane.showInputDialog(mensaje);
+            
+            if(letra.length() == 1 && Character.isLetter(letra.charAt(0))){
+                FM.mensaje("La letra valida ingresada es: "+letra.charAt(0));
+                seguir = false;
+            }else{
+                FM.mensaje("ERROR, Ingrese una letra valida");
+            }
+        }while(seguir == true);
+        
+        return letra.charAt(0);
+    }
     //Metodo que muestra un mensaje en una caja de dialogos de la libreria JOptionPane MessageDialog
     public static void mensaje(String mensaje){
         JOptionPane.showMessageDialog(null,mensaje);
