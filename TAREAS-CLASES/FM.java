@@ -69,8 +69,9 @@ public class FM
             letra = JOptionPane.showInputDialog(mensaje);
             
             if(letra.length() == 1 && Character.isLetter(letra.charAt(0))){
-                FM.mensaje("La letra valida ingresada es: "+letra.charAt(0));
-                seguir = false;
+                if(letra.charAt(0) == 'f' || letra.charAt(0) == 'F' || letra.charAt(0) == 'm' || letra.charAt(0) == 'M'){
+                    seguir = false;
+                }
             }else{
                 FM.mensaje("ERROR, Ingrese una letra valida");
             }
