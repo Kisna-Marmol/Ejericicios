@@ -19,6 +19,14 @@ public class Paciente
     public Paciente(){
         
     }
+    public Paciente(String nombre, int edad, char genero, double peso, double altura) {
+    	this.nombre = nombre;
+    	this.edad = edad;
+    	this.ID = "";
+    	this.genero = genero;
+    	this.peso = peso;
+    	this.altura = altura;
+    }
     public Paciente(String nombre, int edad, String ID, char genero, double peso, double altura){
         this.nombre = nombre;
         this.edad = edad;

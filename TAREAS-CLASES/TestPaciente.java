@@ -8,6 +8,7 @@
 import javax.swing.JOptionPane;
 public class TestPaciente
 {
+    //public static Paciente paciente[] = new Paciente[3];
     public static void main(String args[]){
         String nombre = FM.pedirCadena("Ingrese el nombre:");
         int edad = FM.pedirEntero("Ingrese la edad");
@@ -15,16 +16,26 @@ public class TestPaciente
         double peso = FM.pedirDecimal("Ingrese el peso en kg:");
         double altura = FM.pedirDecimal("Ingrese al altura en ft:");
         
-        //Paciente paciente1 = new Paciente(nombre, edad, genero, peso, altura);
-        Paciente paciente1 = new Paciente(nombre, edad, genero, peso, altura);
-        Paciente paciente2 = new Paciente(nombre, edad, genero);
-        Paciente paciente3 = new Paciente();
+        Paciente p[] = new Paciente[3]; //arreglo de paciente
+        p[0] = new Paciente(nombre, edad, genero, peso, altura);
+        p[1] = new Paciente(nombre, edad, genero);
+        p[1].setPeso(70.5);
+        p[1].setAltura(1.70);
+        p[2] = new Paciente();
         
-        Paciente[] pacientes = {paciente1, paciente2, paciente3};
         
-        for(int i = 0; i < pacientes.length; i++){
+        for(int i = 0; i < p.length; i++){
+            FM.mensaje("Paciente #"+(i+1)+"\n==========================================\n"+p[i].toString());
+            int resultadoIMC = p[i].calcIMC();
+            if(resultadoIMC == -1){
+                FM.mensaje("El paciente esta por debajo de su peso ideal");
+            }else if(resultadoIMC == 0){
+                FM.mensaje("El paciente esta en su peso ideal");
+            }else{
+                FM.mensaje("El paciente tiene sobrepeso");
+            }
             
-            
+            FM.mensaje("Es mayor de edad: "+p[i].vereficarEdad());
         }
     }
 }
