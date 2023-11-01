@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=FM
+comment1.params=mensaje
+comment1.target=int\ pedirEntero(java.lang.String)
+comment2.params=mensaje
+comment2.target=double\ pedirDecimal(java.lang.String)
+comment3.params=mensaje
+comment3.target=java.lang.String\ pedirCadena(java.lang.String)
+comment4.params=mensaje
+comment4.target=char\ pedirLetra(java.lang.String)
+comment5.params=mensaje
+comment5.target=void\ mensaje(java.lang.String)
+numComments=6
