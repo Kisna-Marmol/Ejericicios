@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Cuadrado
+comment1.params=
+comment1.target=Cuadrado()
+comment2.params=x\ y\ lado\ nombre
+comment2.target=Cuadrado(int,\ int,\ int,\ java.lang.String)
+comment3.params=
+comment3.target=double\ area()
+numComments=4
