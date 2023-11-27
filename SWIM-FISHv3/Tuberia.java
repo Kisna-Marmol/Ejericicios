@@ -13,6 +13,7 @@ public class Tuberia extends Coordenada
 {
     int ancho, alto;
     Rectangle rec;
+    boolean frenar = false;
     public Tuberia(int x, int y, String ruta){
         super(x,y,ruta);
         ancho=ima.getIconWidth();
