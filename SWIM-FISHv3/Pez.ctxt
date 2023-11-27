@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Pez
+comment1.params=x\ y\ ruta
+comment1.target=Pez(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ setRectangle()
+comment3.params=g
+comment3.target=void\ dibujar(java.awt.Graphics)
+comment4.params=
+comment4.target=void\ mover()
+comment5.params=
+comment5.target=void\ moverAut()
+comment6.params=tuberias
+comment6.target=boolean\ detectarTuberia(Tuberia[])
+comment7.params=espacios
+comment7.target=boolean\ detectarEspacio(Espacio[])
+comment8.params=presionado
+comment8.target=void\ setEspacioPresionado(java.lang.Boolean)
+comment9.params=
+comment9.target=void\ actualizar()
+numComments=10

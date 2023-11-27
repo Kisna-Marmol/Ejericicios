@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Tuberia
+comment1.params=x\ y\ ruta
+comment1.target=Tuberia(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ setRectangle()
+comment3.params=
+comment3.target=java.awt.Rectangle\ getRectangle()
+comment4.params=
+comment4.target=int\ getAncho()
+comment5.params=ancho
+comment5.target=void\ setAncho(int)
+comment6.params=
+comment6.target=int\ getAlto()
+comment7.params=alto
+comment7.target=void\ setAlto(int)
+comment8.params=
+comment8.target=void\ mover()
+comment9.params=g
+comment9.target=void\ dibujar(java.awt.Graphics)
+numComments=10

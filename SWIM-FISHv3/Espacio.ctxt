@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Espacio
+comment1.params=x\ y\ ancho\ alto
+comment1.target=Espacio(int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=int\ getAncho()
+comment3.params=ancho
+comment3.target=void\ setAncho(int)
+comment4.params=
+comment4.target=int\ getAlto()
+comment5.params=alto
+comment5.target=void\ setAlto(int)
+comment6.params=
+comment6.target=void\ setRectangle()
+comment7.params=g
+comment7.target=void\ dibujar(java.awt.Graphics)
+comment8.params=
+comment8.target=void\ mover()
+comment9.params=otro
+comment9.target=boolean\ detectarChoque(java.awt.Rectangle)
+numComments=10

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Fondo
+comment1.params=x\ y\ ruta
+comment1.target=Fondo(int,\ int,\ java.lang.String)
+comment2.params=g
+comment2.target=void\ dibujar(java.awt.Graphics)
+numComments=3
