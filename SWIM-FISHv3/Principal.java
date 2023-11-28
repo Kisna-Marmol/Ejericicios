@@ -5,6 +5,7 @@
  * @author (Kisna Marmol) 
  * @version (a version number or a date)
  */
+
 import javax.swing.JFrame;
 public class Principal extends JFrame
 {
