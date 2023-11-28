@@ -15,6 +15,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.Font;
 import javax.swing.JOptionPane;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Escenario extends JPanel implements ActionListener, KeyListener {
     private static final int TUBERIA_MIN_Y = -25;
@@ -29,11 +31,8 @@ public class Escenario extends JPanel implements ActionListener, KeyListener {
     Pez p;
     Espacio recEnMedio[];
     int contadorPuntos = 0;
-    boolean ultimoEspacioPasado = false; // Nuevo indicador para rastrear el último espacio pasado
-    boolean interacion = false;
-    boolean detectarMedio = false;
-    boolean puedeIncrementar = true;
     Principal principal;
+    List<Espacio> espacioAtravesado;
 
     public Escenario(Principal principal) {
         this.principal = principal;
@@ -42,11 +41,12 @@ public class Escenario extends JPanel implements ActionListener, KeyListener {
         inicializarEspacio();
         f = new Fondo(0, 0, "imagenes/fondo3.jpg");
         p = new Pez(50, 300, "imagenes/pez3.png");
+        espacioAtravesado = new ArrayList<>();
         tem = new Timer(70, this);
         tem.start();
         addKeyListener(this);
         setFocusable(true);
-        setSize(f.ancho + 200, f.alto + 100);
+        setSize(f.ancho, f.alto);//f.ancho + 200, f.alto + 100;
     }
 
     private void inicializarTuberiaAbajo() {
@@ -85,46 +85,22 @@ public class Escenario extends JPanel implements ActionListener, KeyListener {
             tem.stop();
             GameOver();
         } else {
-            if (pasaPorEspacio && !interacion && puedeIncrementar) {
-            contadorPuntos++;
-            System.out.println("Contador: " + contadorPuntos);
-            interacion = true;
-            puedeIncrementar = false;
-
-            // Programamos un temporizador para restablecer la capacidad de incrementar después de un tiempo
-            Timer temporizador = new Timer(500, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    puedeIncrementar = true;
-                    ((Timer) e.getSource()).stop();  // Detenemos el temporizador después de un tiempo
-                    System.out.println("Restableciendo la capacidad de incrementar");
+            if (pasaPorEspacio) {
+                for(Espacio espacio: recEnMedio){
+                    if (espacio.pasarEspacio(p.getX(), p.getY(), p.getAncho(), p.getAlto())){
+                        if(!espacioAtravesado.contains(espacio)){
+                            contadorPuntos++;  // Incrementa el contador de puntos
+                            espacioAtravesado.add(espacio);
+                        }
+                    }
                 }
-            });
-            temporizador.setRepeats(false);  // Configuramos el temporizador para no repetirse
-            temporizador.start();
-        } else if (!pasaPorEspacio) {
-            interacion = false;
-            System.out.println("Restableciendo la interacción");
-        }
-
+            }
             moverTuberias();
             p.actualizar();
             repaint();
         }
     }
     
-    // Dentro del método detectarEspacio de la clase Pez
-    /*public boolean detectarEspacio(Espacio[] espacios) {
-        for (Espacio espacio : espacios) {
-            if (this.getBounds().intersects(espacio.getBounds())) {
-                // Si el pez está dentro del espacio, devuelve true
-                return true;
-            }
-        }
-        // Si el pez no está en ningún espacio, devuelve false
-        return false;
-    }*/
-
     public void moverTuberias() {
         for (Tuberia tuberia : tAbajo) {
             tuberia.mover();
@@ -152,7 +128,7 @@ public class Escenario extends JPanel implements ActionListener, KeyListener {
                 System.out.println("Si hay colision abajo/arriba");
             } else if (detectarEnMedio) {
                 System.out.println("Si hay colision en medio");
-                System.out.println("Contador: " + contadorPuntos);
+                espacioAtravesado.clear();
             }
         }
 
@@ -171,11 +147,11 @@ public class Escenario extends JPanel implements ActionListener, KeyListener {
     }
 
     public void keyReleased(KeyEvent evt) {
-        // Lógica para la tecla liberada (si es necesaria)
+        
     }
 
     public void keyTyped(KeyEvent evt) {
-        // Lógica para la tecla pulsada (si es necesaria)
+        
     }
 
     public void paint(Graphics g) {

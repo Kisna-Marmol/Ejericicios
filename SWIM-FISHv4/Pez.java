@@ -22,17 +22,24 @@ public class Pez extends Coordenada
         setRectangle(); // Agrega esta línea para inicializar el rectángulo
     }
     
+    public int getAncho(){
+        return ancho;
+    }
+    public int getAlto(){
+        return alto;
+    }
+    
     public void setRectangle(){
         rec = new Rectangle(x,y,ancho,alto);
         //System.out.println("Fish Rectangle: " + rec);
     }
     
-    
     //Movimiento
     public void mover(){
         if(frenar == false){
-        y--;
-        setRectangle();}
+            y--;
+            setRectangle();
+        }
         /*if(dir == 'a'){
             y--;
             setRectangle();
@@ -40,14 +47,15 @@ public class Pez extends Coordenada
             //System.out.println("Fish Position: x=" + x + ", y=" + y);
         }*/
     }
+    
     public void moverAut(){
         if(frenar == false){
         if(x < 550){
-        x++;}//se mueve a la derecha
+            x++;
+        }//se mueve a la derecha
         y++;//se mueve para abajo
         rec.setLocation(x, y);} 
     }
-    
     
     public boolean detectarTuberia(Tuberia[] tuberias){
         moverAut();
@@ -67,10 +75,9 @@ public class Pez extends Coordenada
         moverAut();
         mover();
         for (Espacio espacio : espacios) {
-        if (this.getBounds().intersects(espacio.getBounds())) {
-            // Si el pez está dentro del espacio, devuelve true
-            return true;
-        }
+            if(this.rec.intersects(espacio.rec)){
+                return true;
+            }
         }
         // Si el pez no está en ningún espacio, devuelve false
         return false;
@@ -88,8 +95,5 @@ public class Pez extends Coordenada
     }
     
     // Dentro de la clase Pez
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, ancho, alto);
-    }
 }
 
