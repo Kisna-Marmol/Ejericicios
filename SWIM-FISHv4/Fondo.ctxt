@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Fondo
+comment1.params=x\ y\ ruta
+comment1.target=Fondo(int,\ int,\ java.lang.String)
+numComments=2
