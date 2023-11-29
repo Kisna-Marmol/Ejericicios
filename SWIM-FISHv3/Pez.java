@@ -1,6 +1,5 @@
-
 /**
- * Write a description of class Pez here.
+ * Write a description of class Tuberia here.
  * 
  * @author (Kisna Marmol) 
  * @version (a version number or a date)
@@ -15,6 +14,7 @@ public class Pez extends Coordenada
     private Rectangle rec;
     boolean espacioPresionado;
     boolean frenar = false;
+    boolean pasoPorEspacio;
     public Pez(int x, int y, String ruta){
         super(x,y,ruta);
         ancho=ima.getIconWidth();
@@ -22,21 +22,24 @@ public class Pez extends Coordenada
         setRectangle(); // Agrega esta línea para inicializar el rectángulo
     }
     
+    public int getAncho(){
+        return ancho;
+    }
+    public int getAlto(){
+        return alto;
+    }
+    
     public void setRectangle(){
         rec = new Rectangle(x,y,ancho,alto);
         //System.out.println("Fish Rectangle: " + rec);
     }
     
-    public void dibujar(Graphics g)
-    {
-        g.drawImage(imagen,x,y,null);
-    }
-    
     //Movimiento
     public void mover(){
         if(frenar == false){
-        y--;
-        setRectangle();}
+            y--;
+            setRectangle();
+        }
         /*if(dir == 'a'){
             y--;
             setRectangle();
@@ -44,14 +47,15 @@ public class Pez extends Coordenada
             //System.out.println("Fish Position: x=" + x + ", y=" + y);
         }*/
     }
+    
     public void moverAut(){
         if(frenar == false){
         if(x < 550){
-        x++;}//se mueve a la derecha
+            x++;
+        }//se mueve a la derecha
         y++;//se mueve para abajo
         rec.setLocation(x, y);} 
     }
-    
     
     public boolean detectarTuberia(Tuberia[] tuberias){
         moverAut();
@@ -70,14 +74,12 @@ public class Pez extends Coordenada
     public boolean detectarEspacio(Espacio[] espacios){
         moverAut();
         mover();
-        for(Espacio espacio : espacios ){
-            //System.out.println("Fish Rectagle: " + this.rec);
-            //System.out.println("Tube Rectangle: " + tuberia.rec);
-            //System.out.println("intersects: " + this.rec.intersects(tuberia.rec));
+        for (Espacio espacio : espacios) {
             if(this.rec.intersects(espacio.rec)){
                 return true;
             }
         }
+        // Si el pez no está en ningún espacio, devuelve false
         return false;
     }
     
@@ -89,6 +91,9 @@ public class Pez extends Coordenada
         if(!espacioPresionado){
             moverAut();
         }
+        //pasoPorEspacio = false;
     }
+    
+    // Dentro de la clase Pez
 }
 

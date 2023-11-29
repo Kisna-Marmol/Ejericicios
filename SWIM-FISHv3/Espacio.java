@@ -2,7 +2,7 @@
 /**
  * Write a description of class Espacio here.
  * 
- * @author (your name) 
+ * @author (Kisna Marmol) 
  * @version (a version number or a date)
  */
 
@@ -15,6 +15,7 @@ public class Espacio extends Coordenada
 {
     int ancho, alto;
     Rectangle rec;
+    boolean yaContado;
     public Espacio(int x, int y, int ancho, int alto){
         super(x,y);
         /*ancho=ima.getIconWidth();
@@ -22,6 +23,7 @@ public class Espacio extends Coordenada
         this.ancho = ancho;
         this.alto = alto;
         setRectangle();
+        this.yaContado = false;
     }
     
     public int getAncho(){
@@ -46,8 +48,8 @@ public class Espacio extends Coordenada
     public void dibujar(Graphics g)
     {
         //g.drawImage(imagen,x,y,null);
-        g.setColor(Color.GREEN);
-        g.fillRect(x, y, ancho, alto);
+        //g.setColor(Color.GREEN);
+        //g.fillRect(x, y, ancho, alto);
         //g.drawRect(x, y, ancho, alto);
     }
     
@@ -58,9 +60,21 @@ public class Espacio extends Coordenada
         }
     }
     
-    
     public boolean detectarChoque(Rectangle otro)
     {
         return rec.intersects(otro);
+    }
+    
+    public boolean pasarEspacio(int x, int y, int ancho, int alto) {
+        boolean pasaPorEspacio = (x + ancho >= this.x && x <= this.x + this.ancho) && (y + alto >= this.y && y <= this.y + this.alto);
+        if(pasaPorEspacio && !yaContado){
+            yaContado = true;
+            return true;
+        }
+        return false;
+    }
+    
+    public void resetYaContado(){
+        yaContado = false;
     }
 }

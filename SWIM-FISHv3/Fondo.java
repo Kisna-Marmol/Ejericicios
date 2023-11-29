@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Fondo here.
  * 
@@ -16,8 +15,5 @@ public class Fondo extends Coordenada
         super(x,y,ruta);
         ancho=ima.getIconWidth();
         alto=ima.getIconHeight();
-    }
-    public void dibujar(Graphics g){
-        g.drawImage(imagen,x,y,null);
     }
 }

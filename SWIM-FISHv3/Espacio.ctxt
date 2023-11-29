@@ -2,6 +2,10 @@
 comment0.target=Espacio
 comment1.params=x\ y\ ancho\ alto
 comment1.target=Espacio(int,\ int,\ int,\ int)
+comment10.params=x\ y\ ancho\ alto
+comment10.target=boolean\ pasarEspacio(int,\ int,\ int,\ int)
+comment11.params=
+comment11.target=void\ resetYaContado()
 comment2.params=
 comment2.target=int\ getAncho()
 comment3.params=ancho
@@ -18,4 +22,4 @@ comment8.params=
 comment8.target=void\ mover()
 comment9.params=otro
 comment9.target=boolean\ detectarChoque(java.awt.Rectangle)
-numComments=10
+numComments=12

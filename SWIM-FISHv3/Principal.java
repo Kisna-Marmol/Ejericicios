@@ -2,10 +2,9 @@
 /**
  * Write a description of class Principal here.
  * 
- * @author (Kisna Marmol) 
+ * @author (your name) 
  * @version (a version number or a date)
  */
-
 import javax.swing.JFrame;
 public class Principal extends JFrame
 {
@@ -16,7 +15,7 @@ public class Principal extends JFrame
         e = new Escenario(this);
         add(e);
         
-        setSize(e.getWidth(),e.getHeight()+50);//Tamaño de ventana
+        setSize(e.getWidth(),e.getHeight());//Tamaño de ventana e.getHeight() + 50
         setLocationRelativeTo(null);//centrar la ventana en la pantalla
         setResizable(false);//que no maximice
         setVisible(true);//Mostrar ventana

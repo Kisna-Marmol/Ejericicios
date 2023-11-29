@@ -1,4 +1,5 @@
 
+
 /**
  * Write a description of class Tuberia here.
  * 
@@ -42,6 +43,13 @@ public class Tuberia extends Coordenada
         this.alto = alto;
     }
     
+    public void setAltura(int nuevaAltura) {
+        this.alto = nuevaAltura;
+    }
+    public int getAltura() {
+        return alto;
+    }
+    
     public void mover(){
         x--;
         if(x < 0){
@@ -49,7 +57,4 @@ public class Tuberia extends Coordenada
         }
     }
     
-    public void dibujar(Graphics g){
-        g.drawImage(imagen,x,y,null);
-    }
 }

@@ -1,4 +1,10 @@
 
+/**
+ * Write a description of class FM here.
+ * 
+ * @author (Kisna Marmol) 
+ * @version (a version number or a date)
+ */
 import java.util.Random;
 public class FM
 {
