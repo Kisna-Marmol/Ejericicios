@@ -15,17 +15,18 @@ public class Espacio extends Coordenada
 {
     int ancho, alto;
     Rectangle rec;
-    boolean yaContado;
+    boolean yaContado;// Indica si el espacio ya fue contado para los puntos
     public Espacio(int x, int y, int ancho, int alto){
         super(x,y);
         /*ancho=ima.getIconWidth();
         alto=ima.getIconHeight();*/
         this.ancho = ancho;
         this.alto = alto;
-        setRectangle();
-        this.yaContado = false;
+        setRectangle(); // Inicializa el rectángulo del espacio
+        this.yaContado = false; // Inicializa el conteo
     }
     
+    //Getters & Setters
     public int getAncho(){
         return ancho;
     }
@@ -40,7 +41,7 @@ public class Espacio extends Coordenada
         this.alto = alto;
     }
     
-    public void setRectangle(){
+    public void setRectangle(){// Método para inicializar el rectángulo del espacio
         rec = new Rectangle(x,y,ancho,alto);
         //System.out.println("Tube Rectangle: " + rec);
     }
@@ -56,25 +57,27 @@ public class Espacio extends Coordenada
     public void mover(){
         x--;
         if(x < 0){
-            x = 1080;
+            x = 1080;// Si el espacio sale de la pantalla, se reinicia en la posición derecha
         }
     }
     
-    public boolean detectarChoque(Rectangle otro)
+    public boolean detectarChoque(Rectangle otro)// Método para detectar choque con otro rectángulo
     {
         return rec.intersects(otro);
     }
     
-    public boolean pasarEspacio(int x, int y, int ancho, int alto) {
+    public boolean pasarEspacio(int x, int y, int ancho, int alto) {// Método para verificar si el pez pasa por el espacio y cuenta puntos
+        // Verifica si el rectángulo definido por las coordenadas (x, y) y las dimensiones (ancho, alto)
+        // se superpone con el área del espacio representado por este objeto.
         boolean pasaPorEspacio = (x + ancho >= this.x && x <= this.x + this.ancho) && (y + alto >= this.y && y <= this.y + this.alto);
         if(pasaPorEspacio && !yaContado){
-            yaContado = true;
-            return true;
+            yaContado = true;// Marca el espacio como contado
+            return true;// Indica que el pez ha pasado por el espacio
         }
-        return false;
+        return false;// Indica que el pez no ha pasado por el espacio
     }
     
-    public void resetYaContado(){
+    public void resetYaContado(){// Método para reiniciar el estado de conteo del espacio
         yaContado = false;
     }
 }
